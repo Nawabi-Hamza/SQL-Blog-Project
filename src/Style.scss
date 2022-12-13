@@ -253,3 +253,38 @@
         border-bottom: 1px solid gray;
     }
 }
+
+
+.makePost{
+    .writePage{
+        .form-check-input{
+            margin:12px;
+        }
+        .form-check-label{
+            margin:8px;
+        }
+       
+    }
+    .editor{
+       
+            color:black;
+    
+            .edit{
+                font-size: 30px;
+                height: 45vh;
+                
+            }
+    }
+    .btn{
+        background-color: brown;
+        color:white;
+        border: 2px solid brown;
+    }
+    .btn:hover{
+        color:brown;
+        background-color: white;
+    }
+    .form-control{
+        height:50px;
+    }
+}
