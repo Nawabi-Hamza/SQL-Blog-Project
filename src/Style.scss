@@ -1,0 +1,255 @@
+// *{
+//     background-color: gray;
+// } 
+        $mainImage :url('https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&');
+        .Loginpage{
+            background-image: $mainImage;
+            background-size: cover;
+            height: 100vh; 
+            width: 100vw;
+            box-shadow: 3px 3px 12px black;
+
+            center{
+                padding-top: 10vh;
+                h1{
+                    color:white;
+                    font-size: 50px;
+                    font-weight: 700;
+                }
+                form{
+                    background-color: white;
+                    width: 30%;
+                    padding:24px 0px ;
+                }
+            }
+        }
+// .Apps{
+//     display: flex;
+//     justify-content: center;
+//     .containers{
+//         width: "100%";
+//         .link{
+//             text-decoration: none;
+//             color: inherit;
+//         }
+//         p{
+//             font-size: 12px;
+//             color:red;
+//             text-align: center;
+//         }
+//         .auth{
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+//             justify-content: center;
+//             height: 100vh;
+//             background-color: $mainColor;
+                // h1{
+                //     font-size: 40px;
+                //     color:gray;
+                //     margin-bottom: 30px;
+                // }
+                // form{
+                //     display: flex;
+                //     flex-direction: column;
+                //     padding:50px;
+                //     width: 200px;
+                //     gap:20px;
+                //     input{
+                //         padding:10px;
+                //         border: none;
+                //         border-bottom: 1px solid black;
+        
+                //     }
+                //     button{
+                //         padding:10px;
+                //         border: none;
+                //         background-color: aquamarine;
+                //         color:white;
+                //         cursor:pointer;
+                //     }
+                //     span{
+                //         font-size: 10px;
+                        // font-align:center;
+                        
+                //     }
+                // }
+//         }
+//     }
+// }
+
+//================= Navbar Dessign =================
+
+.navbar{
+    background-color: gray;
+    .container{
+        padding:2px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo{
+            img{
+                width: 120px;
+                height:50px;
+            }
+        }
+        .links{
+            display: flex;
+            align-items: center;
+            gap: 10;
+            .link{
+                text-decoration: none;
+                color:black;
+                display: inline;
+                transition: 1s;
+                margin: 0px 20px;
+            }
+            .link:hover{
+                color:white;
+                transition: 1s;
+            }
+        }
+    }
+}
+
+.myFooter{
+    li{
+        list-style: none;
+    }
+    li:hover{
+        color:black;
+        font-weight: 700;
+        cursor:pointer;
+    }
+}
+.home{
+    .bgcolor{
+        background-color: rgba(165, 42, 42, 0.836);
+    }
+    .posts{
+        .post{
+            // display: flex;
+            // gap:50px;
+            &:nth-child(2n+1){
+                flex-direction: row-reverse;
+                
+            }
+            img{
+                // flex:2;
+                // position: relative;
+                box-shadow: 25px 20px 1px brown;
+                // &::after{
+                //     content: "";
+                //     width: 100%;
+                //     height: 100%;
+                //     background-color: gray;
+    
+                // }
+            }
+            #link{
+                text-decoration: none;
+                color:black
+            }
+            .fatherbtn{
+                // position: relative;
+                .btn-dark{
+                    background-color: white;
+                    color:black;
+                    font-size: 24px;
+                    // position: absolute;
+                    // top: 350px;
+                }
+                .btn-dark:hover{
+                    background-color: black;
+                    color:white;
+                }
+
+            }
+        }
+    
+    }
+
+}
+
+.single{
+    padding-top:1px ;
+    display:flex;
+    gap:50px;
+    .content{
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap:50px;
+        .postImage{
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-top: 0px;
+        }
+        .user{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            .userImage{
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            .edit{
+                img{
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+            .delete{
+                img{
+                    height: 30px;
+                    width: 30px;
+                }
+            }
+        }
+        
+    }
+    h1{
+        font-size: 40px;
+        line-height: 50px;
+    }
+    p{
+        font-size: 18px;
+        text-align: justify;
+        color:rgb(24, 24, 24);
+    }
+
+}
+.menue{
+    display: flex;
+    img{
+    width: 100%;
+    height: 80%;
+    }
+    .content{
+        position: relative;
+        #link{
+            font-size: 16px;
+            text-decoration: none;
+            color:black;
+        }
+        .btn{
+            position: absolute;
+            bottom: 28px;
+            // margin-top: -35px;
+            color:black;
+            background-color: white;
+        }
+        .btn:hover{
+            color:white;
+            background-color: black;
+        }
+    }
+    .like{
+        padding: 8px;
+        border-bottom: 1px solid gray;
+    }
+}
