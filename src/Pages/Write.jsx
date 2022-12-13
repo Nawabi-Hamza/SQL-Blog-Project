@@ -9,7 +9,7 @@ console.log(value)
     <div className="container-fluid my-2 makePost">
       <div className="container-md">
       <div className="row">
-        <div className="col-md-6 mt-2">
+        <div className="col-md-6 mt-3">
           <div className="editor">
             <input type="text" placeholder='write Your title' className='form-control my-2'/>
             <ReactQuill theme="snow" placeholder='Write Your Post Description' className='edit' value={value} onChange={setValue} />
