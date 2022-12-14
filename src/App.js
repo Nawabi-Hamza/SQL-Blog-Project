@@ -51,7 +51,7 @@ const router = createBrowserRouter([{
 ])
 function App(){
               return(
-                <div >
+                <div>
                   {/* <BrowserRouter>
                   <Routes>
                     <Route path="/" element={<HomePage />}/>
@@ -61,7 +61,7 @@ function App(){
                   </BrowserRouter> */}
                 {/* <div className="Apps"> */}
                   {/* <div className='containers'> */}
-                  <RouterProvider router={router} />
+                    <RouterProvider router={router} />
                   {/* </div> */}
                 {/* </div> */}
                </div>

@@ -5,7 +5,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 export default function Menu() {
     const [ hide,show ] = useState({display:"none"})
-    
+    console.log(hide)
     const handleShow=()=>{
         show({display:"inline-block"})
     }
