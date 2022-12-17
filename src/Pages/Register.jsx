@@ -4,44 +4,41 @@ import { Button, TextField } from "@mui/material"
 import { useState } from "react"; 
 import "../Style.scss"
 import axios from "axios"
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+
+const MyStyle = {width:"25vw", marginTop:"25px",height:"60px",}
 export default function Register() {
-  // const [ name,setName ] = useState()
-  // const [ email,setEmail ] = useState()
-  // const [ password,setPassword ] = useState()
-  // console.log(name)
-  // console.log(email)
-  // console.log(password)
-  const [ inputs,setInputs ] = useState({
-    username:"",email:"",password:""
+  const navigate = useNavigate()
+  const [input,setInput] = useState({
+    name:"",
+    email:"",
+    password:""
   })
+
   const handlChange = (e)=>{
-    setInputs((prev)=>({...prev,[e.target.name]:e.target.value}))
+    setInput((prev)=>({...prev,[e.target.name] : e.target.value}))
   }
+  console.log(input)
   const handleSubmit = async(e)=>{
-      e.preventDefault();
-      // alert("submit ed") 
-      try{
-        await axios.post("http://localhost:4000/auth/register",inputs)
-      }catch(error){
-        alert(error)
-      }
+    e.preventDefault()
+    try{
+      await axios.post("http://localhost:4000/auth/register",input)
+      alert("Welcome "+input.name)
+      navigate("/login")
+    }catch(error){
+      console.log(error)
+      alert("user already exist")
+    }
+
 
   }
 
-
-
-  const MyStyle = {
-      width:"25vw",
-      marginTop:"25px",
-      height:"60px",
-  }
   return (
-    <div className='Loginpage'> 
+    <div className='Loginpage' > 
       <center>
         <h1>Register</h1>
-      <form style={{padding:"12px"}}>
-        <TextField style={MyStyle} variant="standard" name="username" placeholder="username" onChange={handlChange} required></TextField><br/>
+      <form style={{padding:"12px" , opacity:"0.9"}}>
+        <TextField style={MyStyle} variant="standard" name="name" placeholder="username" onChange={handlChange} required></TextField><br/>
         <TextField style={MyStyle} variant="standard" name="email" placeholder="user email" onChange={handlChange} required></TextField><br/>
         <TextField style={MyStyle} variant="standard" name="password" placeholder="password" onChange={handlChange} required></TextField><br/>
         <Button style={MyStyle} color="error" variant="contained" type="submit" onClick={handleSubmit} required>Register</Button><br/>

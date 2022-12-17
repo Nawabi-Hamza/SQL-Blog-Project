@@ -14,7 +14,6 @@ import Login from './Pages/Login';
 
 const Layout = ()=>{
   return(<div>
-
     <NavBarSection />
     <Outlet/>
     <Footer/>
