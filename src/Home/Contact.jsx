@@ -15,7 +15,7 @@ function ContactPage(){
         e.preventDefault();
         try{
             setSattue("sending....")
-            let res = await axios.post("http://localhost:4000/contactMail",{
+            await axios.post("http://localhost:4000/contactMail",{
             doctor:doctor,
             name:name,
             email:email,

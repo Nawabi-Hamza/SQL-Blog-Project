@@ -114,7 +114,7 @@ function NavBarSection() {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' ,"&:hover":{fontWeight:"700",color:"black"}}}
-                href={page} 
+                href={"/"+page} 
               >
                 {page}
               </Button>

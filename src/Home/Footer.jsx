@@ -8,7 +8,7 @@ export default function Footer() {
     <div className='p-3 py-5' style={{backgroundColor:"brown",color:"white","^:hover":{
       color:"red"
     }}}>
-    <div className='container-md myFooter'>
+    <div className='container-lg myFooter'>
       <div className="row">
       <div className='col-md-4'>
       <ul style={ULs}>

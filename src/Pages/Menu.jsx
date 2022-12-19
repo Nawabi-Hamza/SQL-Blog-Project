@@ -12,7 +12,7 @@ export default function Menu() {
   return (
     <div className="menue ">
         <div className="posts bgcolor">
-            <div className="row   bg-light">
+            <div className="row bg-light">
             <center>
             <h4 className="like">You May Like This</h4>
             </center>
