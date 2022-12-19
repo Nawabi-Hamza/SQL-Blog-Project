@@ -1,12 +1,27 @@
 // import NavBarSection from "./Navbar"
 // import { Button } from "@mui/material"
 // import NavBBB from "./NavBBB"
-import posts from "./data"
+// import posts from "./data"
 import "../Style.scss"
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useState,useEffect } from "react"
+import { Link,useLocation } from "react-router-dom"
+import axios from "axios"
 function HomePage(){
     const [ hide,show ] = useState({display:"none"})
+    const cat = useLocation().search
+    const [ posts,setPosts ] = useState([])
+    useEffect(() => {
+      const fetchData = async()=>{
+        try{
+            const res = await axios.get(`http://localhost:4000/posts/${cat}`)
+            setPosts(res.data)
+        }catch(error){
+          alert(error)
+        }
+      }
+
+      fetchData()
+    }, [cat])
     
     const handleShow=()=>{
         show({display:"inline-block"})
@@ -26,7 +41,7 @@ function HomePage(){
                    <Link to={`/post/${item.id}`} id="link">
                     <h1>{item.title}</h1>
                     </Link>
-                    <p>{item.desc}</p>
+                    <p>{item.description}</p>
                     <p id="showmore" style={hide}>{item.desc}</p>
                     <Link to={`/post/${item.id}`}>
                     <button className="btn btn-dark mt-md-5" onClick={handleShow}>Read More</button>

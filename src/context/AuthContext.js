@@ -14,8 +14,10 @@ export const AuthContextProvider = ({children})=>{
     }
     // ======logout function=======
      const logout = async(inputs)=>{
-        await axios.post("http://localhost:4000/auth/logout",inputs)
+        // alert("")
+        await axios.post("http://localhost:4000/auth/logout")
         setCurrentUser(null)
+        alert("logout")
      }
 
      useEffect(() => {
