@@ -1,11 +1,28 @@
 import React from 'react'
-import posts from "../Home/data"
+// import posts from "../Home/data"
 import "../Style.scss"
-import { useState } from "react"
+import { useState,useEffect,useContext } from "react"
 import { Link } from "react-router-dom"
-export default function Menu() {
+import axios from "axios"
+import {AuthContext} from "../context/AuthContext"
+export default function Menu({cat}) {
     const [ hide,show ] = useState({display:"none"})
-    console.log(hide)
+
+    const {currentUser} = useContext(AuthContext)
+    const [ posts,setPosts ] = useState([])
+    useEffect(() => {
+      const fetchData = async()=>{
+        try{
+            const res = await axios.get(`http://localhost:4000/posts/?cat=${cat}`)
+            setPosts(res.data)
+        }catch(error){
+          alert(error)
+        }
+      }
+
+      fetchData()
+    }, [cat])
+    // console.log(hide)
     const handleShow=()=>{
         show({display:"inline-block"})
     }
@@ -14,7 +31,7 @@ export default function Menu() {
         <div className="posts bgcolor">
             <div className="row bg-light">
             <center>
-            <h4 className="like">You May Like This</h4>
+            <h4 className="like">Related Post You May Like To Read</h4>
             </center>
                 {posts.map((item)=>(
             <div className="row post my-2">
@@ -24,9 +41,10 @@ export default function Menu() {
                 {/* <hr className="display-none-md"/> */}
                 <div className="col-7 content fatherbtn">
                    <Link to={`/post/${item.id}`} id="link">
+                    {/* <h2>{currentUser.name}</h2> */}
                     {item.title}
                     </Link>
-                    {/* <p id="showmore" style={hide}>{item.desc}</p> */}
+                    {/* <span>{item.description}</span> */}
                     <Link to={`/post/${item.id}`}>
                     <button className="btn btn-dark mb-3" onClick={handleShow}>Read More</button>
                     </Link>

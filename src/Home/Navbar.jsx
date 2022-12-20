@@ -18,15 +18,13 @@ function NavBarSection() {
   const  {currentUser}  = useContext(AuthContext)
   const { logout } = useContext(AuthContext)
 
-  const pages = ['Home', 'Contact', 'register','login'];
+  const pages = ['register' , 'login' ,'Home', 'Contact'];
   const pagesLogin = ['Profile','Home', 'Contact','write'];
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -88,7 +86,7 @@ const logouts = ()=>{
                 "^:hover":{color:"gray"}
               }}
             >
-              {currentUser? pages.map((page) => (
+              {currentUser? pagesLogin.map((page) => (
             <Link to={"/"+page} style={{textDecoration:"none",color:"black","&:hover":{color:"gray"}}}> <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center" >{page}</Typography>
                 </MenuItem>
@@ -99,6 +97,32 @@ const logouts = ()=>{
                     </MenuItem>
                     </Link>
                   )) }
+                  <hr/>
+                 <span className="text-muted">&nbsp; Categories</span>
+                  <Button
+              href="/?cat=technology"
+              sx={{ color: 'black', display: 'block' ,"&:hover":{color:"gray"}}}
+            >
+              Technology
+            </Button>
+            <Button
+              href="/?cat=healt"
+              sx={{ color: 'black', display: 'block' ,"&:hover":{color:"gray"}}}
+            >
+              Health
+            </Button>
+            <Button
+              href="/?cat=art"
+              sx={{ color: 'black', display: 'block' ,"&:hover":{color:"gray"}}}
+            >
+              Art
+            </Button>
+      {currentUser? <Button
+        onClick={logouts}
+        sx={{ color: 'black', display: 'block' ,"&:hover":{color:"gray"}}}
+      >
+        LogOut
+      </Button>: null}
             </Menu>
           </Box>
           <Typography
@@ -142,12 +166,7 @@ const logouts = ()=>{
                 {page}
               </Button>
             ))}
-            <Button
-              href="/?cat=art"
-              sx={{ my: 2, color: 'white', display: 'block' ,"&:hover":{fontWeight:"700",color:"black"}}}
-            >
-              Art
-            </Button>
+            
             <Button
               href="/?cat=technology"
               sx={{ my: 2, color: 'white', display: 'block' ,"&:hover":{fontWeight:"700",color:"black"}}}
@@ -159,6 +178,12 @@ const logouts = ()=>{
               sx={{ my: 2, color: 'white', display: 'block' ,"&:hover":{fontWeight:"700",color:"black"}}}
             >
               Health
+            </Button>
+            <Button
+              href="/?cat=art"
+              sx={{ my: 2, color: 'white', display: 'block' ,"&:hover":{fontWeight:"700",color:"black"}}}
+            >
+              Art
             </Button>
       {currentUser? <Button
         onClick={logouts}
