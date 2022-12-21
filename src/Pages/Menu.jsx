@@ -36,7 +36,7 @@ export default function Menu({cat}) {
                 {posts.map((item)=>(
             <div className="row post my-2">
                 <div className="col-5 img">
-                    <img src={item.img} alt={item.title}  />
+                    <img src={`../upload/${item.img}`} alt={item.title}  />
                 </div>
                 {/* <hr className="display-none-md"/> */}
                 <div className="col-7 content fatherbtn">

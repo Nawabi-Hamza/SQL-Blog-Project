@@ -6,6 +6,7 @@ import "../Style.scss"
 import { useState,useEffect } from "react"
 import { Link,useLocation } from "react-router-dom"
 import axios from "axios"
+import * as DOMPurify from "dompurify"
 function HomePage(){
     const [ hide,show ] = useState({display:"none"})
     const cat = useLocation().search
@@ -26,6 +27,12 @@ function HomePage(){
     const handleShow=()=>{
         show({display:"inline-block"})
     }
+
+
+    const getText = (html)=>{
+        const doc = new DOMParser().parseFromString(html,"text/html")
+        return doc.body.textContent
+    }
     return(<>
     <div className="home">
         <div className="posts bgcolor">
@@ -34,15 +41,15 @@ function HomePage(){
                 {posts.map((item)=>(
             <div className="row post">
                 <div className="col-md-6 img">
-                    <img src={item.img} alt={item.title}  className="w-100 h-75 w-md-50"/>
+                    <img src={`../upload/${item.img}`} alt={item.title}  className="w-100 h-75 w-md-50"/>
                 </div>
                 {/* <hr className="display-none-md"/> */}
                 <div className="col-md-6 content px-md-5 mb-5 mb-md-0 fatherbtn">
                    <Link to={`/post/${item.id}`} id="link">
                     <h1>{item.title}</h1>
                     </Link>
-                    <p>{item.description}</p>
-                    <p id="showmore" style={hide}>{item.desc}</p>
+                    <p>{getText(item.description)}</p>
+                    {/* <p id="showmore" style={hide}>{item.desc}</p> */}
                     <Link to={`/post/${item.id}`}>
                     <button className="btn btn-dark mt-md-5" onClick={handleShow}>Read More</button>
                     </Link>

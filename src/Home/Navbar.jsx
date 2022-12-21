@@ -106,7 +106,7 @@ const logouts = ()=>{
               Technology
             </Button>
             <Button
-              href="/?cat=healt"
+              href="/?cat=health"
               sx={{ color: 'black', display: 'block' ,"&:hover":{color:"gray"}}}
             >
               Health
@@ -174,7 +174,7 @@ const logouts = ()=>{
               Technology
             </Button>
             <Button
-              href="/?cat=healt"
+              href="/?cat=health"
               sx={{ my: 2, color: 'white', display: 'block' ,"&:hover":{fontWeight:"700",color:"black"}}}
             >
               Health
