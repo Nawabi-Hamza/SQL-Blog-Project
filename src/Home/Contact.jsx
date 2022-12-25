@@ -2,8 +2,11 @@
 import { Button, TextField,InputLabel,NativeSelect, FormControl } from "@mui/material"
 import axios from "axios"
 import { useState } from "react"; 
-const doctors = ["Ahmadi","Noori","Azizi"]
+import { useNavigate } from "react-router-dom"
+const doctors = ["Hamza","Asee","Zohiab"]
+
 function ContactPage(){
+    const navigate = useNavigate()
     const [name,setName] = useState();
     const [email,setEmail] = useState();
     const [message,setMessag] = useState();
@@ -21,7 +24,7 @@ function ContactPage(){
             email:email,
             message:message
         })
-        window.location.reload()
+        navigate('/')
         }catch(error){
             console.log(error)
         }
@@ -36,7 +39,7 @@ function ContactPage(){
     <form onSubmit={handleSubmit} style={{padding:"12px"}}>
     <FormControl style={MyStyle}>
             <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                Doctor
+                User
             </InputLabel>
             <NativeSelect
                 inputProps={{

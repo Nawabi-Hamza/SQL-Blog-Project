@@ -5,7 +5,7 @@ import "../Style.scss"
 import Menu from './Menu'
 import { useState,useContext,useEffect } from "react"
 import axios from "axios"
-import { useLocation,useNavigate } from "react-router-dom"
+import { useLocation,useNavigate ,Link} from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
 import moment from "moment"
 import * as DOMPurify from "dompurify"
@@ -61,7 +61,9 @@ export default function Single() {
             {post.user_id === currentUser?.id && (
             <div className="row ms-3">
             <div className="col-4 edit">
-              <img src={editImg}  alt="edit Icon" />
+              <Link to="/write?edit=2" state={post}>
+                <img src={editImg}  alt="edit Icon" />
+              </Link>
             </div>
             <div className="col-4 delete">
               <img src={deleteImg} onClick={handleDelete} id="deletPost" alt="edit Icon" />

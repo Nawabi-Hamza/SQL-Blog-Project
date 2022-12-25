@@ -7,15 +7,21 @@ import { useState,useEffect } from "react"
 import { Link,useLocation } from "react-router-dom"
 import axios from "axios"
 import * as DOMPurify from "dompurify"
+
 function HomePage(){
+    // const [isLoading,setIsLoading] = useState(false)
+
+
     const [ hide,show ] = useState({display:"none"})
     const cat = useLocation().search
     const [ posts,setPosts ] = useState([])
     useEffect(() => {
+        // setIsLoading(true)
       const fetchData = async()=>{
         try{
             const res = await axios.get(`http://localhost:4000/posts/${cat}`)
             setPosts(res.data)
+            // setIsLoading(false)
         }catch(error){
           alert(error)
         }
@@ -33,7 +39,10 @@ function HomePage(){
         const doc = new DOMParser().parseFromString(html,"text/html")
         return doc.body.textContent
     }
-    return(<>
+
+
+    
+    return(<>   
     <div className="home">
         <div className="posts bgcolor">
             <div className="container-lg">
@@ -41,6 +50,7 @@ function HomePage(){
                 {posts.map((item)=>(
             <div className="row post">
                 <div className="col-md-6 img">
+
                     <img src={`../upload/${item.img}`} alt={item.title}  className="w-100 h-75 w-md-50"/>
                 </div>
                 {/* <hr className="display-none-md"/> */}
@@ -61,5 +71,6 @@ function HomePage(){
         </div>
     </div>
     </>)
+    
 }
 export default HomePage

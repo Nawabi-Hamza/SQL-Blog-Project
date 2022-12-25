@@ -268,10 +268,12 @@
     .editor{
        
             color:black;
-    
+        // position:relative;
             .edit{
+                position:relative;
                 font-size: 30px;
                 height: 40vh;
+                
                 
             }
     }
@@ -285,11 +287,23 @@
         background-color: brown;
     }
     .form-control{
-        height:50px;
+        // height:50px; 
+        padding:20px;
     }
 }
 
 
 #deletPost:hover{
     cursor:pointer;
+}
+
+#tempImg{
+    // position:relative;
+    img{
+        position:relative;
+        width:100%;
+        height:200px;
+        object-fit:cover;
+        border-radius:12px;
+    }
 }
